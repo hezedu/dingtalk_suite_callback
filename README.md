@@ -1,6 +1,7 @@
 # dingtalk suite callback
 dingtalk express 中间件。自动验证回调URL有效性。
-Demo
+
+Demo：
 ```js
 var dd_suite_callback = require('dingtalk_suite_callback');
 var config = {
