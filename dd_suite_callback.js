@@ -15,7 +15,6 @@ module.exports= function(req, res, next){
   var nonce = req.query.nonce;
   var encrypt = req.body.encrypt;
 
-  var msg_signature = newCrypt.getSignature(timestamp, nonce, encrypt);
 
   var result = newCrypt.decrypt(encrypt);
 
@@ -24,10 +23,10 @@ module.exports= function(req, res, next){
   var Random = message.Random;
   Random = newCrypt.encrypt(Random);
 
-  var msg_signature = newCrypt.getSignature(timestamp, nonce, Random);//新签名
+  signature = newCrypt.getSignature(timestamp, nonce, Random);//新签名
 
   var data = {
-    msg_signature: msg_signature,
+    msg_signature: signature,
     encrypt : Random,
     timeStamp : timestamp,
     nonce : nonce
