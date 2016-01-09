@@ -2,7 +2,6 @@ var WXBizMsgCrypt = require('wechat-crypto');
 var config = {
   token : '2323',
   encodingAESKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
-  ip:'115.22.3.222',
   suiteid : 'suite4xxxxxxxxxxxxxxx'
 }
 
