@@ -26,7 +26,7 @@ module.exports = function(config, callback) {
       res.json(result);
 
     } else {
-      res.reply = function() {
+      res.reply = function() {//返回加密后的success
         result = _jsonWrapper(timestamp, nonce, 'success');
         res.json(result);
       }
