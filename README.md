@@ -2,7 +2,7 @@
 dingtalk express 中间件。自动验证回调URL有效性。
 Demo
 ```js
-var dd_suite_callback = require('dd_suite_callback');
+var dd_suite_callback = require('dingtalk_suite_callback');
 var config = {
   token: 'xxxxxxxxx',
   encodingAESKey: 'xxxxxxxxxxxxxxxxxxx',
