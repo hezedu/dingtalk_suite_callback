@@ -1,9 +1,9 @@
 {
-  "name": "dd_suite_callback",
+  "name": "dingtalk_suite_callback",
   "version": "0.0.1",
   "main": "index",
   "keywords": [
-    "ddtalk suite callback",
+    "dingtalk suite callback",
     "ISV",
     "nodejs"
   ],
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hezedu/dd_suite_callback.git"
+    "url": "https://github.com/hezedu/dingtalk_suite_callback.git"
   },
   "dependencies": {
     "wechat-crypto": "0.0.2"
   },
   "licenses": "MIT",
   "email": "hezedu@hotmail.com",
-  "description": "nodejs钉钉ISV套件回调",
+  "description": "nodejs版钉钉ISV套件回调server",
   "bugs": {
-    "url": "https://github.com/hezedu/dd_suite_callback/issues"
+    "url": "https://github.com/hezedu/dingtalk_suite_callback/issues"
   }
 }
