@@ -24,7 +24,7 @@ module.exports= function(req, res, next){
   var Random = message.Random;
   Random = newCrypt.encrypt(Random);
 
-  var msg_signature = newCrypt.getSignature(timestamp, nonce, Random);
+  var msg_signature = newCrypt.getSignature(timestamp, nonce, Random);//新签名
 
   var data = {
     msg_signature: msg_signature,
