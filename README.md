@@ -4,7 +4,7 @@ dingtalk express 中间件。自动验证回调URL有效性。
 ##安装
 `npm install dingtalk_suite_callback`
 
-Demo：
+使用方法：
 ```js
 var dd_suite_callback = require('dingtalk_suite_callback');
 var config = {
