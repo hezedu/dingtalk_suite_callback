@@ -20,19 +20,15 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
   function(message, req, res, next){
     console.log('message', message);
     switch (message.EventType) {
-
-
       case 'tmp_auth_code': //企业号临时授权码
         /*{ AuthCode: '6b4294d637a0387eb36e6785451ff845',
             EventType: 'tmp_auth_code',
             SuiteKey: 'suitexpiycccccccccchj',
             TimeStamp: '1452665779818' }*/
-
         res.reply();
         break;
 
       case 'change_auth': //授权变更消息
-      
         res.reply();
         break;
       case 'suite_relieve': //解除授权消息
@@ -40,18 +36,18 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
             EventType: 'suite_relieve',
             SuiteKey: 'suitexpiycccccccccchj',
             TimeStamp: '1452665774168' }*/
-            
         res.reply();
         break;
+        
       case 'suite_ticket': //ticket，间隔20分。如果有config.saveTicket 不会触发。
         /*{
             EventType: 'suite_ticket',
             SuiteKey: 'suitexpiycccccccccchj',
             SuiteTicket: 'wrEooJqhQlNcWU327mtr20yzWkPtea9LOm0P8w2M3MDjRPUYY5Tu9fspDhZ8HPXeP5yzKuorHIQ0P9GSU5evAc',
             TimeStamp: '1452328049089'}保存到数据库*/
-          
         res.reply();
         break;
+        
       default:
         message.name = 'ddtalk unknow EventType';
         next(message);
