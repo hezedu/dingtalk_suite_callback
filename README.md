@@ -41,6 +41,6 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
         message.name = 'ddtalk unknow EventType';
         next(message);
     }
-});
+}));
 
 ```
