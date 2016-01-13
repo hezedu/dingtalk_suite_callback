@@ -16,9 +16,6 @@ var config = {
   }
 }
 
-config.saveTicket = function(data, callback){
-}
-
 app.post('/dd_suite_callback', dd_suite_callback(config, 
   function(message, req, res, next){
     console.log('message', message);
