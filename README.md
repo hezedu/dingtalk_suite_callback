@@ -22,8 +22,8 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
             EventType: 'suite_ticket',
             SuiteKey: 'suitexpiycccccccccchj',
             SuiteTicket: 'wrEooJqhQlNcWU327mtr20yzWkPtea9LOm0P8w2M3MDjRPUYY5Tu9fspDhZ8HPXeP5yzKuorHIQ0P9GSU5evAc',
-            TimeStamp: '1452328049089'
-          }保存到数据库*/
+            TimeStamp: '1452328049089'}保存到数据库*/
+          
         res.reply();
         break;
 
@@ -37,6 +37,7 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
         break;
 
       case 'change_auth': //授权变更消息
+      
         res.reply();
         break;
       case 'suite_relieve': //解除授权消息
@@ -44,6 +45,7 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
             EventType: 'suite_relieve',
             SuiteKey: 'suitexpiycccccccccchj',
             TimeStamp: '1452665774168' }*/
+            
         res.reply();
         break;
       default:
