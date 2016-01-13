@@ -10,22 +10,20 @@ var dd_suite_callback = require('dingtalk_suite_callback');
 var config = {
   token: 'xxxxxxxxx',
   encodingAESKey: 'xxxxxxxxxxxxxxxxxxx',
-  suiteid: 'xxxxxxxxxxxx' //第一次验证没有不用填
+  suiteid: 'xxxxxxxxxxxx', //第一次验证没有不用填
+  saveTicket: function(data, callback){//可选，和dd_suite配合使用。
+    /*data:{value: ticket的字符串,  expires：到期时间，钉钉回调时间戳 + 20分钟} */
+  }
+}
+
+config.saveTicket = function(data, callback){
 }
 
 app.post('/dd_suite_callback', dd_suite_callback(config, 
   function(message, req, res, next){
     console.log('message', message);
     switch (message.EventType) {
-      case 'suite_ticket': //ticket，间隔20分。
-        /*{
-            EventType: 'suite_ticket',
-            SuiteKey: 'suitexpiycccccccccchj',
-            SuiteTicket: 'wrEooJqhQlNcWU327mtr20yzWkPtea9LOm0P8w2M3MDjRPUYY5Tu9fspDhZ8HPXeP5yzKuorHIQ0P9GSU5evAc',
-            TimeStamp: '1452328049089'}保存到数据库*/
-          
-        res.reply();
-        break;
+
 
       case 'tmp_auth_code': //企业号临时授权码
         /*{ AuthCode: '6b4294d637a0387eb36e6785451ff845',
@@ -46,6 +44,15 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
             SuiteKey: 'suitexpiycccccccccchj',
             TimeStamp: '1452665774168' }*/
             
+        res.reply();
+        break;
+      case 'suite_ticket': //ticket，间隔20分。如果有config.saveTicket 不会触发。
+        /*{
+            EventType: 'suite_ticket',
+            SuiteKey: 'suitexpiycccccccccchj',
+            SuiteTicket: 'wrEooJqhQlNcWU327mtr20yzWkPtea9LOm0P8w2M3MDjRPUYY5Tu9fspDhZ8HPXeP5yzKuorHIQ0P9GSU5evAc',
+            TimeStamp: '1452328049089'}保存到数据库*/
+          
         res.reply();
         break;
       default:
