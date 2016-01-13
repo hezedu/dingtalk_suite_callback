@@ -3,7 +3,7 @@ var WXBizMsgCrypt = require('wechat-crypto');
 module.exports = function(config, callback) {
   //suite4xxxxxxxxxxxxxxx 是钉钉默认测试suiteid 
   var newCrypt = new WXBizMsgCrypt(config.token, config.encodingAESKey, config.suiteid || 'suite4xxxxxxxxxxxxxxx');
-
+  var TICKET_EXPIRES_IN = config.ticket_expires_in || 1000 * 60 * 20 //20分钟
   return function(req, res, next) {
 
     var signature = req.query.signature;
@@ -26,19 +26,33 @@ module.exports = function(config, callback) {
       res.json(result);
 
     } else {
-      res.reply = function() {//返回加密后的success
+      res.reply = function() { //返回加密后的success
         result = _jsonWrapper(timestamp, nonce, 'success');
         res.json(result);
       }
 
-      callback(message, req, res, next);
+      if (config.saveTicket && message.EventType === 'suite_ticket') {
+        var data = {
+          value: message.SuiteTicket,
+          expires: Number(message.TimeStamp) + TICKET_EXPIRES_IN
+        }
+        config.saveTicket(data, function(err) {
+          if (err) {
+            return next(err);
+          } else {
+            res.reply();
+          }
+        });
+      }else{
+        callback(message, req, res, next);
+      }
     };
   }
 
 
   function _jsonWrapper(timestamp, nonce, text) {
     var encrypt = newCrypt.encrypt(text);
-    var msg_signature = newCrypt.getSignature(timestamp, nonce, encrypt);//新签名
+    var msg_signature = newCrypt.getSignature(timestamp, nonce, encrypt); //新签名
     return {
       msg_signature: msg_signature,
       encrypt: encrypt,
