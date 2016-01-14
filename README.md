@@ -14,7 +14,8 @@ var config = {
   suiteid: 'xxxxxxxxxxxx', //第一次验证没有不用填
   
   saveTicket: function(data, callback){//可选，和dingtalk_suite配合使用。
-    /*data:{value: ticket的字符串,  expires：到期时间，钉钉回调时间戳 + 20分钟} */
+    //data:{value: ticket字符串,  expires：到期时间，钉钉回调时间戳 + 20分钟}
+    //把data存好。
     callback(null);
   }
   
