@@ -1,6 +1,6 @@
 # dingtalk suite callback
 dingtalk express 中间件。自动验证回调URL有效性。
-配合 [dingtalk_suite](https://github.com/hezedu/dingtalk_suite) 使用。
+配合 另一个项目：主动调用API [dingtalk_suite](https://github.com/hezedu/dingtalk_suite) 使用。
 
 ##安装
 `npm install dingtalk_suite_callback`
@@ -12,8 +12,9 @@ var config = {
   token: 'xxxxxxxxx',
   encodingAESKey: 'xxxxxxxxxxxxxxxxxxx',
   suiteid: 'xxxxxxxxxxxx', //第一次验证没有不用填
-  saveTicket: function(data, callback){//可选，和dd_suite配合使用。
+  saveTicket: function(data, callback){//可选，和dingtalk_suite配合使用。
     /*data:{value: ticket的字符串,  expires：到期时间，钉钉回调时间戳 + 20分钟} */
+    callback(null);
   }
 }
 
@@ -26,6 +27,7 @@ app.post('/dd_suite_callback', dd_suite_callback(config,
             EventType: 'tmp_auth_code',
             SuiteKey: 'suitexpiycccccccccchj',
             TimeStamp: '1452665779818' }*/
+        //使用 dingtalk_suite 获取永久授权码
         res.reply();
         break;
 
