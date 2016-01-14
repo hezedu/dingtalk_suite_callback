@@ -1,5 +1,6 @@
 # dingtalk suite callback
 dingtalk express 中间件。自动验证回调URL有效性。
+配合 https://github.com/hezedu/dingtalk_suite 使用。
 
 ##安装
 `npm install dingtalk_suite_callback`
