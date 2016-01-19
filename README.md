@@ -14,7 +14,7 @@ var config = {
   encodingAESKey: 'xxxxxxxxxxxxxxxxxxx',
   suiteid: 'xxxxxxxxxxxx', //第一次验证没有不用填
   
-  saveTicket: function(data, callback){//可选，和 dingtalk_suite 配合使用。
+  saveTicket: function(data, callback){//可选，和主动调用API: dingtalk_suite 配合使用。
     //data:{value: ticket字符串,  expires：到期时间，钉钉回调时间戳 + 20分钟}
     fs.writeFile(this.suiteid + 'ticket.txt',JSON.stringify(data), callback);
   }
