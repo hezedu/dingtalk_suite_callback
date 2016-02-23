@@ -1,6 +1,6 @@
 {
   "name": "dingtalk_suite_callback",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index",
   "keywords": [
     "dingtalk suite callback",
