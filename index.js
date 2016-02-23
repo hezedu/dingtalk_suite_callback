@@ -19,8 +19,7 @@ module.exports = function(config, callback) {
 
     var result = newCrypt.decrypt(encrypt);
     var message = JSON.parse(result.message);
-
-    if (message.EventType === 'check_update_suite_url') { //创建套件第一步，验证有效性。
+    if (message.EventType === 'check_update_suite_url' || message.EventType === 'check_create_suite_url') { //创建套件第一步，验证有效性。
       var Random = message.Random;
       result = _jsonWrapper(timestamp, nonce, Random);
       res.json(result);
