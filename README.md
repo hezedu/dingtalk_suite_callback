@@ -12,7 +12,7 @@ var dd_suite_callback = require('dingtalk_suite_callback');
 var config = {
   token: 'xxxxxxxxx',
   encodingAESKey: 'xxxxxxxxxxxxxxxxxxx',
-  suiteid: 'xxxxxxxxxxxx', //第一次验证没有不用填
+  suiteid: 'suitexxxxxxxxxxxx', //这里的suiteid===suiteKey, 第一次验证没有不用填
   
   saveTicket: function(data, callback){//可选，和主动调用API: dingtalk_suite 配合使用。
     //data:{value: ticket字符串,  expires：到期时间，钉钉回调时间戳 + 20分钟}
